@@ -1,0 +1,8 @@
+header {
+    height: 50vh;
+    background-color: red;
+}
+
+.hero-img {
+    max-width: 35%;
+}
