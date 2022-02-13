@@ -1,8 +1,15 @@
 header {
-    height: 50vh;
-    background-color: red;
+  height: 50vh;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url("../../../assets/gitsearch-white-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero-img {
-    max-width: 35%;
+  max-width: 35%;
 }
