@@ -26,7 +26,7 @@ export class AppComponent {
         this.user.hireable = res.hireable;
         this.user.followers = res.followers;
         this.user.following = res.following;
-        this.user.createdAt = res.createdAt;
+        this.user.createdAt = new Date(res.created_at);
         console.log(this.user);
       })
       .catch((err) => console.error(err));
