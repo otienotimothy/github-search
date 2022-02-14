@@ -15,7 +15,11 @@
           The User or Repo with that name was Not Found
         </p>
         <app-user *ngIf="user.name" [currentUser]="user"></app-user>
-        <app-repo></app-repo>
+        <div *ngIf="repos.length" class="mx-auto">
+          <h3 class="text-center" > A list of top 6 Repositories based on the search value </h3>
+          <hr>
+          <app-repo *ngFor="let repo of repos" [repo]="repo" ></app-repo>
+        </div>
       </div>
     </section>
   </div>

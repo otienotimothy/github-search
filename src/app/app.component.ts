@@ -4,7 +4,6 @@ import { Search } from './blueprint/search';
 import { FetchService } from './services/fetch.service';
 import { User } from './user';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -26,6 +25,7 @@ export class AppComponent {
         .fetchData(url)
         .then((res) => {
           console.log(res);
+          this.repos = [];
           this.user.username = res.login;
           this.user.name = res.name;
           this.user.avatarUrl = res.avatar_url;
@@ -39,24 +39,34 @@ export class AppComponent {
           console.log(this.user);
         })
         .catch((err) => {
-          console.error(err);
           this.errorMsg = err.status;
         });
     }
 
     if (formData.searchType === 'repositories') {
       let url = `https://api.github.com/search/repositories?q=${formData.searchTerm}/`;
-      this.fetch.fetchData(url).then((res) => {
-        console.log(res);
-        let response: Array<any> = res.items;
-        response.forEach((repo, index) => {
-          let repoItem: any;
-          if(index < 6){
-            repoItem = new Repo(repo.name, repo.owner.login, repo.html_url, repo.description);
-            this.repos.push(repoItem)
-          }
+      this.fetch
+        .fetchData(url)
+        .then((res) => {
+          console.log(res);
+          let response: Array<any> = res.items;
+          response.forEach((repo, index) => {
+            this.user = new User('', '', '', '', '', '', false, 0, 0, new Date());
+            let repoItem: any;
+            if (index < 6) {
+              repoItem = new Repo(
+                repo.name,
+                repo.owner.login,
+                repo.html_url,
+                repo.description
+              );
+              this.repos.push(repoItem);
+            }
+          });
         })
-      });
+        .catch((err) => {
+          this.errorMsg = err.status;
+        });
     }
 
     this.loading = false;
