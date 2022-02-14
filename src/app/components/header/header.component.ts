@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Search } from 'src/app/search';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  @Output() gitSearch  = new EventEmitter()
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  passFormData(formData: Search){
+    this.gitSearch.emit(formData)
   }
 
 }

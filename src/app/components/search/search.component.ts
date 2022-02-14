@@ -8,7 +8,7 @@ import { Search } from '../../search';
 })
 export class SearchComponent implements OnInit {
 
-  @Output() gitSearch = new EventEmitter()
+  @Output() submitData = new EventEmitter()
 
   search = new Search('', '');
 
@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
 
   onSubmit(){
     console.log(this.search);
-    this.gitSearch.emit(this.search)
+    this.submitData.emit(this.search)
   }
 
 }

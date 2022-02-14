@@ -3,7 +3,7 @@
     <div class="w-50">
       <h1 class="display-3 font-weight-bold text-light">GitHub Search</h1>
       <p class="ms-2 fs-4 text-light">Search, Explore, Discover</p>
-      <app-search></app-search>
+      <app-search (submitData)="passFormData($event)" ></app-search>
     </div>
     <img
       src="../../../assets/Octocat.png"
