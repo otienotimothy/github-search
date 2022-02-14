@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Search } from 'src/app/search';
+import { Search } from '../../blueprint/search';
 
 @Component({
   selector: 'app-header',
