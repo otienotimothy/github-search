@@ -9,7 +9,7 @@ export class FetchService {
 
   constructor(private http:HttpClient) { }
 
-  fetchRandomUsers(url: string):Promise<any>{
+  fetchUsers(url: string):Promise<any>{
     let response:any = this.http.get(url);
     response = lastValueFrom(response);
     return response;
