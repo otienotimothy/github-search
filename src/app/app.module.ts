@@ -8,12 +8,11 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { HeaderComponent } from './components/header/header.component';
 
-import { FetchService } from './fetch.service';
 
 @NgModule({
   declarations: [AppComponent, TopBarComponent, HeaderComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [FetchService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
