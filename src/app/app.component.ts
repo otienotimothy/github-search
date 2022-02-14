@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Search } from './search';
 import { FetchService } from './services/fetch.service';
 import { User } from './user';
 
@@ -8,13 +9,16 @@ import { User } from './user';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  user = new User('','','','','','',false, 0,0, new Date())
+  user = new User('', '', '', '', '', '', false, 0, 0, new Date());
+  errorMsg!: number;
+  loading: boolean = true
 
-  login = 'otienotimothy';
+  constructor(private fetch: FetchService) {}
 
-  constructor(private fetch: FetchService) {
+  gitSearch(formData: Search) {
+    console.log(formData);
     this.fetch
-      .fetchUser(this.login)
+      .fetchUser('')
       .then((res) => {
         console.log(res);
         this.user.username = res.login;
@@ -29,18 +33,10 @@ export class AppComponent {
         this.user.createdAt = new Date(res.created_at);
         console.log(this.user);
       })
-      .catch((err) => console.error(err));
-  }
-
-  fetchUser() {
-    this.fetch.fetchUser(this.login).then((res) => {
-      this.user.username = res.login;
-      this.user.name = res.name;
-      this.user.avatarUrl = res.avatar_url;
-      this.user.bio = res.bio;
-      this.user.location = res.location;
-      this.user.repos = res.public_repos;
-      this.user.hireable = res.hireable;
-    });
+      .catch((err) => {
+        console.error(err);
+        this.errorMsg = err.status
+      });
+      this.loading = false;
   }
 }

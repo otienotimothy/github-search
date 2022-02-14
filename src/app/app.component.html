@@ -1,11 +1,20 @@
 <div>
   <app-top-bar></app-top-bar>
   <div class="container">
-    <app-header></app-header>
+    <app-header (gitSearch)="gitSearch($event)"></app-header>
     <section>
       <h2 class="m-3">Results</h2>
-      <div class="d-flex align-items-center justify-content-center pt-3">
-        <app-user [currentUser]="user" ></app-user>
+      <p class="fs-3 text-center" *ngIf="loading">
+        Search a User or Repository to Display Results
+      </p>
+      <div
+        *ngIf="!loading"
+        class="d-flex align-items-center justify-content-center pt-3"
+      >
+        <p class="fs-3" *ngIf="errorMsg">
+          The User or Repo with that name was Not Found
+        </p>
+        <app-user *ngIf="!errorMsg" [currentUser]="user"></app-user>
       </div>
     </section>
   </div>
