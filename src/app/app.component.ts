@@ -8,7 +8,7 @@ import { User } from './user';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  user = new User('','','','','','',false)
+  user = new User('','','','','','',false, 0,0, new Date())
 
   login = 'otienotimothy';
 
@@ -24,6 +24,9 @@ export class AppComponent {
         this.user.location = res.location;
         this.user.repos = res.public_repos;
         this.user.hireable = res.hireable;
+        this.user.followers = res.followers;
+        this.user.following = res.following;
+        this.user.createdAt = res.createdAt;
         console.log(this.user);
       })
       .catch((err) => console.error(err));

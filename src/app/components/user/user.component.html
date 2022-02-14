@@ -4,22 +4,41 @@
       <img [src]="currentUser.avatarUrl" class="img-fluid rounded" alt="..." />
     </div>
     <div class="col-md-8">
-      <div class="card-body">
+      <div class="card-body px-3">
         <h5 class="card-title">{{ currentUser.name }}</h5>
         <p class="card-text">
           <small class="text-muted"> {{ currentUser.bio }} </small>
         </p>
-        <p class="card-text"> Location: {{ currentUser.location }}</p>
+        <p class="card-text">Location: {{ currentUser.location }}</p>
         <p class="card-text">
           Repositories :
           <span class="text-danger">{{ currentUser.repos }}</span>
         </p>
         <p class="card-text">
-          Hireable : 
-          <span *ngIf="currentUser.hireable" class="badge bg-success ms-2"> Available</span>
-          <span *ngIf="!currentUser.hireable" class="bg-danger ms-2"> Not Available</span>
+          Hireable :
+          <span *ngIf="currentUser.hireable" class="badge bg-success mr-2">
+            Available</span
+          >
+          <span *ngIf="!currentUser.hireable" class="bg-danger mr-2">
+            Not Available</span
+          >
+        </p>
+        <p class="d-flex align-items-center justify-content-between">
+          <span>
+            Followers :
+            <span class="badge bg-danger">
+              {{ currentUser.followers }}
+            </span>
+          </span>
+          <span>
+            Following:
+            <span class="badge bg-success">
+              {{ currentUser.following }}
+            </span>
+          </span>
         </p>
       </div>
     </div>
+    <div class="card-footer text-muted text-center">2 days ago</div>
   </div>
 </div>
