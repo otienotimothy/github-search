@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { UserComponent } from './components/user/user.component';
 import { DateCountPipe } from './pipes/date-count.pipe';
 import { SearchComponent } from './components/search/search.component';
+import { RepoComponent } from './components/repo/repo.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SearchComponent } from './components/search/search.component';
     UserComponent,
     DateCountPipe,
     SearchComponent,
+    RepoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

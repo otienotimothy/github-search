@@ -12,7 +12,7 @@ import { User } from './user';
 })
 export class AppComponent {
   user = new User('', '', '', '', '', '', false, 0, 0, new Date());
-  repos!: Repo[];
+  repos: Repo[] = [];
   errorMsg!: number;
   loading: boolean = true;
 
