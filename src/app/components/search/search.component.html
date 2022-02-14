@@ -1,4 +1,4 @@
-<form class="w-75" (submit)="onSubmit()" >
+<form class="w-75" (submit)="onSubmit(); searchForm.resetForm()" #searchForm = 'ngForm'>
   <div class="form-check form-check-inline">
     <input
       class="form-check-input"
@@ -36,6 +36,6 @@
     />
   </div>
   <div class="d-flex align-items-center justify-content-center">
-    <button type="submit" class="btn btn-outline-light mx-2">Search</button>
+    <button type="submit" class="btn btn-outline-light mx-2" [disabled]="!search.searchType" >Search</button>
   </div>
 </form>
