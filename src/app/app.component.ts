@@ -18,7 +18,7 @@ export class AppComponent {
   gitSearch(formData: Search) {
     console.log(formData);
     this.fetch
-      .fetchUser('')
+      .fetchUser(formData.searchTerm)
       .then((res) => {
         console.log(res);
         this.user.username = res.login;
