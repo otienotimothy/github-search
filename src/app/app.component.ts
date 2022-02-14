@@ -8,7 +8,7 @@ import { User } from './user';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  user = new User('','','','','','','')
+  user = new User('','','','','','',false)
 
   login = 'otienotimothy';
 
@@ -16,13 +16,14 @@ export class AppComponent {
     this.fetch
       .fetchUser(this.login)
       .then((res) => {
+        console.log(res);
         this.user.username = res.login;
         this.user.name = res.name;
         this.user.avatarUrl = res.avatar_url;
         this.user.bio = res.bio;
         this.user.location = res.location;
         this.user.repos = res.public_repos;
-        this.user.reposLink = res.repos_url;
+        this.user.hireable = res.hireable;
         console.log(this.user);
       })
       .catch((err) => console.error(err));
@@ -36,7 +37,7 @@ export class AppComponent {
       this.user.bio = res.bio;
       this.user.location = res.location;
       this.user.repos = res.public_repos;
-      this.user.reposLink = res.repos_url;
+      this.user.hireable = res.hireable;
     });
   }
 }

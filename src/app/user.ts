@@ -6,7 +6,7 @@ export class User {
     public bio: string,
     public location: string,
     public repos: string,
-    public reposLink: string
+    public hireable:boolean
   ) {
       this.username = username,
       this.avatarUrl = avatarUrl,
@@ -14,6 +14,6 @@ export class User {
       this.bio = bio,
       this.location = location,
       this.repos = repos,
-      this.reposLink = reposLink
+      this.hireable = hireable
   }
 }
