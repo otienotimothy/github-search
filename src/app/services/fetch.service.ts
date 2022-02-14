@@ -9,9 +9,11 @@ export class FetchService {
 
   constructor(private http:HttpClient) { }
 
-  fetchUsers(url: string):Promise<any>{
-    let response:any = this.http.get(url);
+  fetchUser(searchTerm: string): Promise<any>{
+    let url:string = `https://api.github.com/users/${searchTerm}`
+    let response: any = this.http.get(url);
     response = lastValueFrom(response);
     return response;
   }
+
 }
