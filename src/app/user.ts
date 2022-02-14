@@ -6,7 +6,10 @@ export class User {
     public bio: string,
     public location: string,
     public repos: string,
-    public hireable:boolean
+    public hireable:boolean,
+    public followers: number,
+    public following: number,
+    public createdAt: Date
   ) {
       this.username = username,
       this.avatarUrl = avatarUrl,
@@ -14,6 +17,9 @@ export class User {
       this.bio = bio,
       this.location = location,
       this.repos = repos,
-      this.hireable = hireable
+      this.hireable = hireable,
+      this.followers = followers,
+      this.following = following,
+      this.createdAt = createdAt
   }
 }
