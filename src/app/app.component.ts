@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Search } from './search';
+import { Search } from './blueprint/search';
 import { FetchService } from './services/fetch.service';
 import { User } from './user';
 
