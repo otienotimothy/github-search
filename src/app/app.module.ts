@@ -13,6 +13,7 @@ import { DateCountPipe } from './pipes/date-count.pipe';
 import { SearchComponent } from './components/search/search.component';
 import { RepoComponent } from './components/repo/repo.component';
 import { HomeComponent } from './components/home/home.component';
+import { UserReposComponent } from './components/user-repos/user-repos.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HomeComponent } from './components/home/home.component';
     SearchComponent,
     RepoComponent,
     HomeComponent,
+    UserReposComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
