@@ -50,21 +50,10 @@ export class HomeComponent implements OnInit {
       this.fetch
         .fetchData(url)
         .then((res) => {
+          this.user = new User('', '', '', '', '', '', false, 0, 0, new Date());
           console.log(res);
           let response: Array<any> = res.items;
           response.forEach((repo, index) => {
-            this.user = new User(
-              '',
-              '',
-              '',
-              '',
-              '',
-              '',
-              false,
-              0,
-              0,
-              new Date()
-            );
             let repoItem: any;
             if (index < 6) {
               repoItem = new Repo(
