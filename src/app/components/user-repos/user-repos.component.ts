@@ -10,18 +10,21 @@ import { Repo } from '../../blueprint/repos';
 })
 export class UserReposComponent implements OnInit {
   repos: Repo[] = [];
+  user!: string
 
   constructor(private route: ActivatedRoute, private fetch: FetchService) {
     this.route.params.subscribe((params) => {
       console.log(params);
+      this.user = params['user']
       let url = `https://api.github.com/users/${params['user']}/repos`;
+      this.repos = [];
       this.fetch
         .fetchData(url)
         .then((res: Array<any>) => {
           console.log(res);
           res.forEach((repo, index) => {
             let repoItem: any;
-            if (index < 6) {
+            if (index < 9) {
               repoItem = new Repo(
                 repo.name,
                 repo.owner.login,

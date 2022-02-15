@@ -1,1 +1,5 @@
-<p>user-repos works!</p>
+<div class="container mt-4">
+    <h2 class="text-center">Select Repositories by  {{user}} </h2>
+    <hr>
+  <app-repo *ngFor="let repo of repos" [repo]="repo"></app-repo>
+</div>
