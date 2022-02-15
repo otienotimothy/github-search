@@ -18,7 +18,7 @@ This web application allows a user to search a user or a list of repositories by
 
 ## Links
 
-- Web Application Link - <>
+- Web Application Link - <https://otienotimothy.github.io/github-search/>
 - Project Repository Link - <https://github.com/otienotimothy/github-search.git>
 
 ## Setup/Installation Requirements
