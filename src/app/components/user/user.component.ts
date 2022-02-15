@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/user';
 
 @Component({
@@ -10,7 +11,11 @@ export class UserComponent implements OnInit {
 
   @Input() currentUser!:User;
 
-  constructor() { }
+  constructor(private router:Router) { }
+
+  onClick(login: string){
+    this.router.navigate(['repos', login])
+  }
 
   ngOnInit(): void {
   }
