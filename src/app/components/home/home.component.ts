@@ -20,13 +20,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   gitSearch(formData: Search) {
-    console.log(formData);
     if (formData.searchType === 'users') {
       let url = `https://api.github.com/users/${formData.searchTerm}`;
       this.fetch
         .fetchData(url)
         .then((res) => {
-          console.log(res);
           this.repos = [];
           this.user.username = res.login;
           this.user.name = res.name;
@@ -38,7 +36,6 @@ export class HomeComponent implements OnInit {
           this.user.followers = res.followers;
           this.user.following = res.following;
           this.user.createdAt = new Date(res.created_at);
-          console.log(this.user);
         })
         .catch((err) => {
           this.errorMsg = err.status;
@@ -51,7 +48,6 @@ export class HomeComponent implements OnInit {
         .fetchData(url)
         .then((res) => {
           this.user = new User('', '', '', '', '', '', false, 0, 0, new Date());
-          console.log(res);
           let response: Array<any> = res.items;
           response.forEach((repo, index) => {
             let repoItem: any;

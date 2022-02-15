@@ -5,7 +5,7 @@
       <small class="text-danger"> Repo by : {{ repo.owner }}</small>
     </div>
     <p class="mb-1">{{ repo.description }}</p>
-    <a href="#">
+    <a [href]="repo.repoUrl" target="_blank">
       <small>{{ repo.repoUrl }}</small>
     </a>
   </div>

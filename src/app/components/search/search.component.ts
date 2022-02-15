@@ -18,7 +18,6 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.search);
     this.submitData.emit(this.search)
   }
 
