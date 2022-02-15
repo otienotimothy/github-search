@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FetchService } from 'src/app/services/fetch.service';
 import { Repo } from '../../blueprint/repos';
 
@@ -12,7 +12,7 @@ export class UserReposComponent implements OnInit {
   repos: Repo[] = [];
   user!: string
 
-  constructor(private route: ActivatedRoute, private fetch: FetchService) {
+  constructor(private route: ActivatedRoute, private fetch: FetchService, private router:Router) {
     this.route.params.subscribe((params) => {
       console.log(params);
       this.user = params['user']
@@ -40,4 +40,9 @@ export class UserReposComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  onClick(){
+    this.router.navigate([''])
+  }
+
 }
