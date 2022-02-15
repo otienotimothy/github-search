@@ -4,19 +4,18 @@ import { Search } from '../../blueprint/search';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  heroImgUrl:string = "../../../assets/Octocat.png";
 
-  @Output() gitSearch  = new EventEmitter()
+  @Output() gitSearch = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  passFormData(formData: Search) {
+    this.gitSearch.emit(formData);
   }
-
-  passFormData(formData: Search){
-    this.gitSearch.emit(formData)
-  }
-
 }
